@@ -1,0 +1,18 @@
+// Variables
+
+// Colors
+
+$bg: black;
+$bg-light: $bg;
+$bg-footer: #282828;
+
+$text: #FFFFFF;
+$faded: #969496;
+
+:root {
+  --bg: #{$bg};
+  --bg-light: #{$bg-light};
+  --bg-footer: #{$bg-footer};
+  --text: #{$text};
+  --faded: #{$faded};
+}

@@ -1,0 +1,29 @@
+.search-results {
+
+  .list {
+    margin-left: -24px;
+    margin-right: -24px;
+
+    @media (min-width: 768px) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .list-item {
+    color: var(--faded);
+    border-bottom: 1px solid var(--faded);
+  }
+
+  .preview {
+    height: 0px;
+    overflow: hidden;
+  }
+
+  .loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
