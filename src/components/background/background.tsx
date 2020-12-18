@@ -12,7 +12,7 @@ function Background({ preview }: Props) {
       {preview &&
         <div className="background">
           <div className="background__color" />
-          <img className="background__image" src={preview?.Poster} />
+          <img className="background__image" src={preview?.Poster} alt="Movie poster" />
         </div>
       }
     </>

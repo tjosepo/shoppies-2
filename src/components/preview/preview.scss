@@ -1,5 +1,28 @@
 .preview {
-  animation: fade-in 0.3s ease-in;
+  box-sizing: border-box;
+  padding: 24px;
+
+  @media (min-width: 768px) {
+    padding: 24px 0;
+  }
+
+  &--wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+
+    &.selected {
+      max-height: 100vh;
+    }
+
+    @media (min-width: 769px) {
+      max-height: none;
+
+      &.selected {
+        max-height: none;
+      }
+    }
+  }
 
   img {
     max-width: 100%;
@@ -22,13 +45,12 @@
     }
   }
 
+  &__year {
+    color: var(--faded);
+    font-weight: 200;
+  }
+
   .plot {
     line-height: 1.75rem;
   }
-  
-  @keyframes fade-in {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
 }
-

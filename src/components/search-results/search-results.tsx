@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { List, ListItem, ListItemText, ListItemSecondaryAction, Button, CircularProgress } from '@material-ui/core';
 import { Movie, SearchData } from '../../interfaces';
 import './search-results.scss';
@@ -12,10 +12,7 @@ interface Props {
 }
 
 function SearchResults({ preview, setPreview, loading, data }: Props) {
-
   const movies = data?.result.Search;
-  console.log(movies);
-
   if (loading) {
     return (
       <div className="search-results">
@@ -33,7 +30,7 @@ function SearchResults({ preview, setPreview, loading, data }: Props) {
       {movies &&
         <List className="list">
           {movies.map((movie: Movie) =>
-            <>
+            <div key={movie.imdbID}>
               <ListItem
                 key={movie.imdbID} button className="list-item" onClick={() => setPreview(movie)}>
                 <ListItemText primary={`${movie.Title} (${movie.Year})`} style={{ paddingRight: 60 }} />
@@ -41,10 +38,8 @@ function SearchResults({ preview, setPreview, loading, data }: Props) {
                   <Button>Nominate</Button>
                 </ListItemSecondaryAction>
               </ListItem>
-              {(preview?.imdbID === movie.imdbID) &&
-                <Preview {...{ movie }} />
-              }
-            </>
+              <Preview {...{ movie }} selected={movie.imdbID === preview?.imdbID} />
+            </div>
           )}
         </List>
       }
