@@ -1,6 +1,6 @@
 # Shoppies v2
 
-[Shoppies v2](https://shoppies-v2.web.app/) is second attempt at [Shopify Challenge for Web Developer interns](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit). See [my first attempt](https://github.com/tommy-josepovic/shoppies-old).
+[Shoppies v2](https://shoppies-v2.web.app/) is my second attempt at [Shopify Challenge for Web Developer interns](https://docs.google.com/document/d/1AZO0BZwn1Aogj4f3PDNe1mhq8pKsXZxtrG--EIbP_-w/edit). See [my first attempt](https://github.com/tommy-josepovic/shoppies-old).
 
 For this attempt, I decided to focus on improving the UX, especially for mobile.
 
