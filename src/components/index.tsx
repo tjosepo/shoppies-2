@@ -4,6 +4,7 @@ import NominationList from './nomination-list/nomination-list';
 import SearchBar from './search-bar/search-bar';
 import SearchResults from './search-results/search-results';
 import Background from './background/background';
+import Preview from './preview/preview';
 
 export {
   Main,
@@ -11,5 +12,6 @@ export {
   SearchBar,
   SearchResults,
   Background,
-  Footer
+  Footer,
+  Preview
 }

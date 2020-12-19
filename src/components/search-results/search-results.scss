@@ -1,4 +1,13 @@
 .search-results {
+  padding: 0 24px;
+
+  @media (min-width: 768px) {
+    padding: 0 50px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-right: -50px;
+  }
 
   .list {
     margin-left: -24px;

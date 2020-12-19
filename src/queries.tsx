@@ -9,6 +9,11 @@ export const GET_MOVIE = gql`
       Type
       Poster
       Plot
+      Genre
+      Runtime
+      Director
+      Metascore
+      imdbRating
     }
   }
 `

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Movie } from '../../interfaces';
+import { PartialMovie } from '../../interfaces';
 import './background.scss';
 
 interface Props {
-  preview?: Movie
+  preview?: PartialMovie,
 }
 
 function Background({ preview }: Props) {

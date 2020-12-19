@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
-import { Background, NominationList, SearchBar, SearchResults } from '..';
+import { Background, NominationList, SearchBar, SearchResults, Preview } from '..';
 import { SEARCH_TITLE } from '../../queries';
-import { Movie, SearchData } from '../../interfaces';
+import { PartialMovie, SearchData } from '../../interfaces';
 import './main.scss';
 
 function Main() {
   const [searchMovie, { loading, data }] = useLazyQuery<SearchData>(SEARCH_TITLE);
-  const [preview, setPreview] = useState<Movie>();
+  const [preview, setPreview] = useState<PartialMovie>();
+
+  useEffect(() => setPreview(undefined), [data]);
 
   return (
     <main className="main">
@@ -15,7 +17,11 @@ function Main() {
         <SearchBar {...{ searchMovie }} />
         <NominationList />
       </nav>
-      <SearchResults {...{ preview, setPreview, loading, data }} />
+      <div className={`grid${preview ? ' grid--preview' : ''}`}>
+        <SearchResults {...{ preview, setPreview, loading, data }} />
+        <Preview partialMovie={preview} {...{ setPreview }} />
+      </div>
+
       <Background {...{ preview }} />
     </main>
   )
