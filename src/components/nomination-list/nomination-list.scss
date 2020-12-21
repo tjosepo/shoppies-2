@@ -1,5 +1,31 @@
 .nomination-list {
-  &--button {
-    margin-right: -15px;
+  background-color: var(--bg-footer);
+  max-width: 500px;
+
+  .close-btn {
+    margin-left: -15px;
+  }
+
+  .nomination {
+    padding: 0 24px;
+
+    @media (min-width: 768px) {
+      padding: 0 50px;
+    }
+
+    .list {
+      margin-left: -24px;
+      margin-right: -24px;
+
+      @media (min-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .list-item {
+      color: var(--faded);
+      border-bottom: 1px solid var(--faded);
+    }
   }
 }

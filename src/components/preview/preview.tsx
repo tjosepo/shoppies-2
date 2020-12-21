@@ -7,16 +7,27 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import "./preview.scss";
 
 interface Props {
-  partialMovie?: PartialMovie,
-  setPreview: React.Dispatch<React.SetStateAction<PartialMovie | undefined>>
+  preview?: PartialMovie,
+  setPreview: React.Dispatch<React.SetStateAction<PartialMovie | undefined>>,
+  nominations: PartialMovie[],
+  setNominations: React.Dispatch<React.SetStateAction<PartialMovie[]>>
 }
 
-export default function Preview({ partialMovie, setPreview }: Props) {
-  const { data } = useQuery(GET_MOVIE, { variables: { id: partialMovie?.imdbID } });
+export default function Preview({ preview, setPreview, nominations, setNominations }: Props) {
+  const { data } = useQuery(GET_MOVIE, { variables: { id: preview?.imdbID } });
 
-  if (!partialMovie || !data) return (<></>);
+  if (!preview || !data) return (<></>);
 
   const movie = data.movie as Movie;
+
+  const nominationsId = nominations.map(nomination => nomination.imdbID);
+  const addNomination = (newNomination: PartialMovie) => {
+    if (!nominations) {
+      setNominations([newNomination]);
+    } else {
+      setNominations([...nominations, newNomination]);
+    }
+  }
 
   return (
     <div key={movie.imdbID} className="preview">
@@ -48,7 +59,10 @@ export default function Preview({ partialMovie, setPreview }: Props) {
       }
 
       <div className="preview__nominate">
-        <Button variant="contained" color="primary">Nominate</Button>
+        {(nominationsId?.includes(movie.imdbID) || nominations.length >= 5)
+          ? <Button variant="contained" color="primary" disabled>Nominate</Button>
+          : <Button variant="contained" color="primary" onClick={() => addNomination(preview)}>Nominate</Button>
+        }
       </div>
     </div>
   )

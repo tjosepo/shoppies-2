@@ -1,8 +1,23 @@
+.shoppies-container {
+  display: grid;
+  grid-template-columns: 100% 100%;
+  transition: transform .3s ease-in-out;
+
+  &.nomination-list-opened {
+    transform: translateX(max(-500px, -100%));
+
+    .main {
+      opacity: 0.6;
+    }
+  }
+}
+
 .main {
   position: relative;
   min-height: 100vh;
   box-shadow: 0 2px 1px 1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
   overflow-x: hidden;
+  transition: opacity .3s ease-in-out;
 
   .grid {
     display: grid;
