@@ -6,10 +6,11 @@ import { debounce } from 'lodash';
 import './search-bar.scss';
 
 interface Props {
-  searchMovie: (options?: QueryLazyOptions<Record<string, any>> | undefined) => void
+  searchMovie: (options?: QueryLazyOptions<Record<string, any>> | undefined) => void,
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>
 }
 
-function SearchBar({ searchMovie }: Props) {
+function SearchBar({ searchMovie, setSearchQuery }: Props) {
   const onChange = (e: React.ChangeEvent) => {
     const input = e.target as HTMLInputElement;
     const title = input.value.trim();
@@ -19,6 +20,7 @@ function SearchBar({ searchMovie }: Props) {
 
   const search = debounce((title: string) => {
     searchMovie({ variables: { search: title } })
+    setSearchQuery(title);
   }, 300, { trailing: true });
 
 

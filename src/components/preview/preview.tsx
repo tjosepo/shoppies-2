@@ -38,6 +38,13 @@ export default function Preview({ preview, setPreview, nominations, setNominatio
       <h2 className="preview__title">{movie.Title}</h2>
       <p className="preview__info">{movie.Year}{movie.Genre ? ` ‧ ${movie.Genre}` : ''}{movie.Runtime !== "N/A" ? ` ‧ ${movie.Runtime}` : ''} </p>
 
+      <div className="preview__nominate">
+        {(nominationsId?.includes(movie.imdbID) || nominations.length >= 5)
+          ? <Button variant="contained" color="primary" disabled>Nominate</Button>
+          : <Button variant="contained" color="primary" onClick={() => addNomination(preview)}>Nominate</Button>
+        }
+      </div>
+
       {(movie.imdbRating !== "N/A" || movie.Metascore !== "N/A") &&
         <div className="preview__ratings">
           {movie.imdbRating !== "N/A" &&
@@ -57,13 +64,6 @@ export default function Preview({ preview, setPreview, nominations, setNominatio
       {movie.Plot !== "N/A" &&
         <p className="preview__plot">{movie.Plot}</p>
       }
-
-      <div className="preview__nominate">
-        {(nominationsId?.includes(movie.imdbID) || nominations.length >= 5)
-          ? <Button variant="contained" color="primary" disabled>Nominate</Button>
-          : <Button variant="contained" color="primary" onClick={() => addNomination(preview)}>Nominate</Button>
-        }
-      </div>
     </div>
   )
 }

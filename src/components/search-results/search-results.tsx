@@ -4,6 +4,7 @@ import { PartialMovie, SearchData } from '../../interfaces';
 import './search-results.scss';
 
 interface Props {
+  searchQuery: string,
   preview?: PartialMovie,
   setPreview: React.Dispatch<React.SetStateAction<PartialMovie | undefined>>
   loading: boolean,
@@ -12,9 +13,17 @@ interface Props {
   setNominations: React.Dispatch<React.SetStateAction<PartialMovie[]>>
 }
 
-function SearchResults({ preview, setPreview, loading, data, nominations, setNominations }: Props) {
+function SearchResults({ searchQuery, preview, setPreview, loading, data, nominations, setNominations }: Props) {
   const movies = data?.result.Search;
 
+  if (searchQuery === '') {
+    return (
+      <div className="search-results">
+        <h2>Search</h2>
+        <p>Select 5 movies you would like to nominate to The Shoppies Award.</p>
+      </div>
+    )
+  }
   if (loading) {
     return (
       <div className="search-results">
@@ -22,6 +31,17 @@ function SearchResults({ preview, setPreview, loading, data, nominations, setNom
         <div className="loading">
           <CircularProgress />
         </div>
+      </div>
+    )
+  }
+
+  console.log(data);
+
+  if (data?.result.Response === 'False') {
+    return (
+      <div className="search-results">
+        <h2>Search</h2>
+        <p>No movie found for "{searchQuery}".</p>
       </div>
     )
   }
@@ -38,7 +58,7 @@ function SearchResults({ preview, setPreview, loading, data, nominations, setNom
   return (
     <div className="search-results">
       <h2>Search</h2>
-      <p>Please, search for a movie you would like to nominate to The Shoppies Award.</p>
+      <p>Showing results for "{searchQuery}".</p>
       {movies &&
         <List className="list">
           {movies.map((movie: PartialMovie) =>

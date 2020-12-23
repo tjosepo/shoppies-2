@@ -21,6 +21,7 @@ export const GET_MOVIE = gql`
 export const SEARCH_TITLE = gql`
   query SEARCH {
     result(s: $search) @rest(path: "/?apikey=${process.env.REACT_APP_OMBD_KEY}&type=movie&{args}") {
+      Response
       Search {
         Title
         Year

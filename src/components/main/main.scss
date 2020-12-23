@@ -3,11 +3,26 @@
   grid-template-columns: 100% 100%;
   transition: transform .3s ease-in-out;
 
+  .modal-bg {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+  }
+
   &.nomination-list-opened {
     transform: translateX(max(-500px, -100%));
 
     .main {
       opacity: 0.6;
+    }
+
+    .modal-bg {
+      display: block;
     }
   }
 }
