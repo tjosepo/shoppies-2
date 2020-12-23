@@ -51,3 +51,6 @@ REACT_APP_OMBD_KEY=...
 
 ### Mobile 
 <img src="https://github.com/tommy-josepovic/shoppies-2/raw/master/github/screenshots/mobile.png" width="320" alt="Screenshot mobile" />
+
+### Nominations
+![Screenshot Nominations](github/screenshots/desktop_nominations.png) 
