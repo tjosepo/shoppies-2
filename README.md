@@ -43,3 +43,11 @@ Make sure to have a valid [OMDB key](https://www.omdbapi.com/apikey.aspx):
 # .env
 REACT_APP_OMBD_KEY=...
 ```
+
+## Screenshots
+
+### Desktop
+![Screenshot Desktop](github/screenshots/desktop.png) 
+
+### Mobile 
+<img src="https://github.com/tommy-josepovic/shoppies-2/raw/master/github/screenshots/mobile.png" width="320" alt="Screenshot mobile" />
