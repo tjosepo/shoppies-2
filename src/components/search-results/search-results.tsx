@@ -35,8 +35,6 @@ function SearchResults({ searchQuery, preview, setPreview, loading, data, nomina
     )
   }
 
-  console.log(data);
-
   if (data?.result.Response === 'False') {
     return (
       <div className="search-results">
